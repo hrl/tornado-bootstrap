@@ -15,7 +15,7 @@ if __name__ == "__main__":
     except (TypeError, IndexError):
         port = site_settings["port"]
 
-    mapping = util.generate_url(urls.default_urls, urls.apps, __name__)
+    mapping = util.generate_url(urls.urls, urls.apps, __name__)
     application = tornado.web.Application(mapping, **site_settings)
 
     tornado.locale.load_gettext_translations(site_settings["locale_path"],

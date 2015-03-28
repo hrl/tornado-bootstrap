@@ -6,6 +6,6 @@ apps = [
     (r"/app", "app"),
 ]
 
-default_urls = [
+urls = [
     # (r'relative_url', 'RequestHandler')
 ]

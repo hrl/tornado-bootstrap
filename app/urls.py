@@ -1,6 +1,6 @@
 apps = [
 ]
 
-default_urls = [
+urls = [
     (r'', 'example.ExampleHandler'),
 ]

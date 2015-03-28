@@ -1,9 +1,9 @@
-def generate_url(default_urls, apps=None, name=None):
+def generate_url(urls, apps=None, name=None):
     if apps is None:
         apps = []
     mapping = []
 
-    mapping.extend(default_urls)
+    mapping.extend(urls)
 
     for prefix, app_name in apps:
         if name == "__main__":

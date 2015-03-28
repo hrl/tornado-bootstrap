@@ -7,4 +7,4 @@ __all__ = [
 ]
 
 
-mapping = util.generate_url(urls.default_urls, urls.apps, __name__)
+mapping = util.generate_url(urls.urls, urls.apps, __name__)
