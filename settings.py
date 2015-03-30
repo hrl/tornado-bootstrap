@@ -25,5 +25,5 @@ site_settings = {
 }
 
 database_settings = {
-    "default": "sqlite:///databse.db",
+    "default": "sqlite:///database.db",
 }
