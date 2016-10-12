@@ -8,7 +8,7 @@ from tornado.util import unicode_type
 import wtforms.form
 
 
-class WTFormsTornadoTranslationWarpper(object):
+class WTFormsTornadoTranslationWrapper(object):
     def __init__(self, locale_code):
         self.locale = tornado.locale.get(locale_code)
 
@@ -19,7 +19,7 @@ class WTFormsTornadoTranslationWarpper(object):
         return self.locale.translate(singular, plural, n)
 
 
-class WTFormsTornadoArgumentsWarpper(dict):
+class WTFormsTornadoArgumentsWrapper(dict):
     def getlist(self, key):
         """
         tornado.web.RequestHandler._get_arguments
@@ -43,7 +43,7 @@ class Form(wtforms.form.Form):
         def get_translations(self, form):
             if not hasattr(form, '_locale_code'):
                 form._locale_code = "en_US"
-            return WTFormsTornadoTranslationWarpper(form._locale_code)
+            return WTFormsTornadoTranslationWrapper(form._locale_code)
 
     def __init__(self, formdata=None, obj=None, prefix='', data=None, meta=None,
                  locale_code="en_US", **kwargs):
@@ -55,5 +55,5 @@ class Form(wtforms.form.Form):
         if formdata is not None \
                 and not hasattr(formdata, 'getlist') \
                 and not hasattr(formdata, 'getall'):
-            formdata = WTFormsTornadoArgumentsWarpper(formdata)
+            formdata = WTFormsTornadoArgumentsWrapper(formdata)
         super(Form, self).process(formdata, obj, data, **kwargs)
